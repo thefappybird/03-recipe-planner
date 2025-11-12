@@ -28,7 +28,11 @@ onBeforeUnmount(() =>
   <header class="header-footer">
     <nav>
       <div class="title-header">
-        <button class="toggle-btn" @click="toggleDrawer">
+        <button
+          class="toggle-btn"
+          @click="toggleDrawer"
+          v-if="userStore.isAuthenticated"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
