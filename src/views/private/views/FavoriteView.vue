@@ -25,6 +25,7 @@ import ExploreCard from "@/components/explore/ExploreCard.vue";
 import ExploreCardSkeleton from "@/components/explore/ExploreCardSkeleton.vue";
 import ThePagination from "@/components/ThePagination.vue";
 import { useFavoriteStore } from "@/stores/favoriteStore";
+import { useHead } from "@vueuse/head";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
 
@@ -37,6 +38,13 @@ onMounted(async () => {
     search: "",
     page: 1,
   });
+});
+useHead({
+  title: "Favorites | Plato",
+  meta: [
+    { name: "description", content: "View your favorite recipes" },
+    { property: "og:title", content: "Favorites | Plato" },
+  ],
 });
 </script>
 

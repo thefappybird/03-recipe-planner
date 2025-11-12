@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import TheCard from "@/components/TheCard.vue";
+import { useHead } from "@vueuse/head";
+
+useHead({
+  title: "About | Plato",
+  meta: [
+    { name: "description", content: "Learn more about Plato" },
+    { property: "og:title", content: "About | Plato" },
+  ],
+});
 </script>
 
 <template>

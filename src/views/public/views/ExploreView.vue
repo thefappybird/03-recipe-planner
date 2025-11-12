@@ -8,6 +8,7 @@ import { useRecipeStore } from "@/stores/recipeStore";
 import type { RecipeFilter } from "@/types/interfaces";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
+import { useHead } from "@vueuse/head";
 
 const { toggleLoginModal } = useModalStore();
 
@@ -24,6 +25,14 @@ onMounted(async () => {
 async function handleSearch(filter: RecipeFilter | null) {
   await filterRecipes(filter);
 }
+
+useHead({
+  title: "Explore | Plato",
+  meta: [
+    { name: "description", content: "Explore new recipes" },
+    { property: "og:title", content: "Explore | Plato" },
+  ],
+});
 </script>
 <template>
   <TheExploreHeader :onSearch="handleSearch" />

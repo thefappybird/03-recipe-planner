@@ -65,14 +65,16 @@ import { useRecipeStore } from "@/stores/recipeStore";
 import type { Recipe } from "@/types/interfaces";
 import { storeToRefs } from "pinia";
 import { useModalStore } from "@/stores/modalStore";
+import { useHead } from "@vueuse/head";
 const modalStore = useModalStore();
 const recipeStore = useRecipeStore();
 const route = useRoute();
 
+const currentRecipe = ref<Recipe | null>(null);
+
 const recipeId = computed(() => route.params.recipeId as string);
 const { isEditing } = storeToRefs(recipeStore);
 
-const currentRecipe = ref<Recipe | null>(null);
 const imageUrl = computed((): string | undefined => {
   if (!currentRecipe.value) return undefined;
   if (!currentRecipe.value.imageUrl) return undefined;
@@ -122,6 +124,26 @@ onBeforeUnmount(() => {
   if (currentRecipe.value?.imageUrl instanceof File) {
     URL.revokeObjectURL(imageUrl.value as string);
   }
+});
+
+useHead({
+  title: currentRecipe.value
+    ? currentRecipe.value.title + " | Plato"
+    : "Recipe Not Found | Plato",
+  meta: [
+    {
+      name: "description",
+      content: currentRecipe.value
+        ? currentRecipe.value.description || "Delicious recipe on Plato."
+        : "The page you are looking for does not exist.",
+    },
+    {
+      property: "og:title",
+      content: currentRecipe.value
+        ? currentRecipe.value.title + " | Plato"
+        : "Recipe Not Found | Plato",
+    },
+  ],
 });
 </script>
 

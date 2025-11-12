@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import GreetingSection from "@/components/home/GreetingSection.vue";
+import { useHead } from "@vueuse/head";
+
+useHead({
+  title: "Home | Plato",
+  meta: [
+    { name: "description", content: "Welcome to Plato" },
+    { property: "og:title", content: "Home | Plato" },
+  ],
+});
 </script>
 
 <template>

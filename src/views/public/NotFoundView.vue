@@ -15,8 +15,19 @@
 
 <script setup lang="ts">
 import { useRouter, RouterLink } from "vue-router";
+import { useHead } from "@vueuse/head";
 const router = useRouter();
 
+useHead({
+  title: "404 Not Found | Plato",
+  meta: [
+    {
+      name: "description",
+      content: "The page you are looking for does not exist.",
+    },
+    { property: "og:title", content: "404 Not Found | Plato" },
+  ],
+});
 function goBack() {
   router.back();
 }

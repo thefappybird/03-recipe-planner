@@ -7,7 +7,26 @@ export const useToastStore = defineStore("toast", () => {
 
   function addToast(message: string, type: Toast["type"] = "info") {
     const id = Date.now();
-    toasts.value.push({ id, message, type });
+    let toastMessage = message;
+    if (!message) {
+      switch (type) {
+        case "success":
+          toastMessage = "Success!";
+          break;
+        case "error":
+          toastMessage = "An error occurred.";
+          break;
+        case "info":
+          toastMessage = "Information.";
+          break;
+        case "warning":
+          toastMessage = "Warning!";
+          break;
+        default:
+          type = "info";
+      }
+    }
+    toasts.value.push({ id, message: toastMessage, type });
 
     // auto remove after 5 seconds
     setTimeout(() => removeToast(id), 5000);

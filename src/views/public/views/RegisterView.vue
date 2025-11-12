@@ -64,7 +64,18 @@ import { storeToRefs } from "pinia";
 import PasswordField from "@/components/PasswordField.vue";
 import { ref } from "vue";
 import { useUserStore } from "@/stores/userStore";
+import { useHead } from "@vueuse/head";
 
+useHead({
+  title: "Register | Plato",
+  meta: [
+    {
+      name: "description",
+      content: "Create a new account to start planning your meals.",
+    },
+    { property: "og:title", content: "Register | Plato" },
+  ],
+});
 const userStore = useUserStore();
 
 const { loadingState } = storeToRefs(userStore);
