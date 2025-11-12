@@ -8,11 +8,10 @@ import GreetingSection from "@/components/home/GreetingSection.vue";
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .main-container {
-  display: flex;
-  flex-direction: column;
+  @include flex(column);
   gap: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 </style>

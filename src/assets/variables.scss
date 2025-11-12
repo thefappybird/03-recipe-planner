@@ -1,0 +1,105 @@
+$white: #ffffff;
+$white-soft: #f7f0e8;
+$lightest-green: #d0eeb7;
+$light-green: #688d63;
+$dark-green: #374b27;
+
+$highlight-green: #aedc95;
+
+$color-background-main: $white;
+
+/* title or header cards */
+$color-background-header: $dark-green;
+$color-text-header: $white;
+
+/* primary cards */
+$color-background-sections: $white;
+
+/* secondary cards */
+$color-background-secondary: $lightest-green;
+
+$color-text: $dark-green;
+
+$section-gap: 160px;
+
+$greeting-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+  rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+  rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+  rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+$heading-sizes: (
+  h1: (
+    3.5rem,
+    6vw,
+  ),
+  h2: (
+    2.5rem,
+    5.5vw,
+  ),
+  h3: (
+    2rem,
+    5vw,
+  ),
+  h4: (
+    1.75rem,
+    4.5vw,
+  ),
+  h5: (
+    1.5rem,
+    3.5vw,
+  ),
+  h6: (
+    1.25rem,
+    3vw,
+  ),
+);
+
+@mixin heading-size($default-size, $min-size) {
+  font-size: min($default-size, $min-size);
+}
+@mixin flex($type: row) {
+  display: flex;
+  flex-direction: $type;
+}
+
+@mixin flex-type($type: row, $justify, $align: center) {
+  @include flex($type);
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin grid-template($columns, $rows) {
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+}
+
+@mixin grid-type($columns, $rows) {
+  display: grid;
+  gap: 1rem;
+  @include grid-template($columns, $rows);
+}
+
+@mixin greeting-image($image) {
+  background-image: url("./images/#{$image}");
+  background-repeat: no-repeat;
+  background-position: 80% center; /* keeps image centered */
+  background-size: cover; /* fills container, may crop */
+}
+
+@mixin color-set($background, $text) {
+  background-color: $background;
+  color: $text;
+}
+
+@mixin main-card {
+  @include color-set($color-background-header, $color-text-header);
+}
+
+@mixin secondary-card {
+  @include color-set($color-background-secondary, $color-text);
+}
+
+@mixin highlighted {
+  color: $light-green;
+  font-weight: bold;
+}

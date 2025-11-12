@@ -1,79 +1,65 @@
-<script setup lang="ts"></script>
-
 <template>
   <section class="greeting-section">
-    <div class="greeting-text">
-      <h1>Fuel Your Health With a Healthy <span class="title">Plato</span></h1>
+    <div class="greeting-text slide-animation">
+      <h1>Fuel Your Health With a Healthy <span>Plato</span></h1>
       <div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nisi
-          reiciendis obcaecati repellendus explicabo sit unde cum praesentium
-          nulla. Totam corrupti molestias, rerum culpa rem iusto consequatur
-          dolore libero asperiores.
+          <span>Plato</span> is a recipe planner app that helps you log and
+          create healthy meal plans. It is never too late to start being mindful
+          of your health; and <span>Plato</span> is a good place to start.
         </p>
-        <button class="common-btn cta"><h5>Start Now</h5></button>
+        <p>
+          Can't wait to get started? Click the button below to create your
+          account and start planning your meals today!
+        </p>
+        <button class="common-btn"><h5>Start Now</h5></button>
       </div>
     </div>
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .greeting-section {
-  background-image: url("../../assets/main-bg.jpg");
-  background-repeat: no-repeat;
-  background-position: 80% center; /* keeps image centered */
-  background-attachment: fixed; /* optional parallax effect */
-  background-size: cover; /* fills container, may crop */
+  @include greeting-image("main-bg.jpg");
   height: 90vh;
   padding: 1.5rem;
 }
 .greeting-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--color-background-main);
+  @include flex-type(column, center);
+  background-color: $color-background-main;
   height: fit-content;
   width: 100%;
   padding: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-}
+  box-shadow: $greeting-shadow;
 
-.greeting-section div {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.cta {
-  width: 50%;
-}
-
-.title {
-  color: var(--light-green);
-}
-@media (min-width: 768px) {
-  .greeting-text {
+  @media (min-width: 768px) {
     width: 80%;
   }
-}
-
-@media (min-width: 1024px) {
-  .greeting-section {
-    padding: 2.5rem;
-  }
-  .greeting-text {
+  @media (min-width: 1024px) {
     width: 60%;
   }
+  @media (min-width: 1440px) {
+    padding-right: 20%;
+  }
 }
 
-@media (min-width: 1440px) {
-  .greeting-section {
+.greeting-section {
+  @media (min-width: 1024px) {
+    padding: 2.5rem;
+  }
+  @media (min-width: 1440px) {
     padding: 3rem;
   }
-  .greeting-text {
-    padding-right: 20%;
+  div {
+    @include flex(column);
+    gap: 1rem;
+
+    span {
+      @include highlighted;
+    }
+    button {
+      width: 50%;
+    }
   }
 }
 </style>

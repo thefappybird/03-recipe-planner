@@ -1,6 +1,0 @@
-@import "./base.css";
-
-.common-btn {
-  background-color: var(--color-background-secondary);
-  padding: 1rem;
-}
