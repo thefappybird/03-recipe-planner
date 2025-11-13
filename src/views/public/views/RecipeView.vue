@@ -4,7 +4,12 @@
       <div class="recipe-details">
         <div class="title-edit-container">
           <h1>{{ currentRecipe.title }}</h1>
-          <button class="edit" @click="onEditClick" title="Edit Recipe">
+          <button
+            v-if="isAuthor"
+            class="edit"
+            @click="onEditClick"
+            title="Edit Recipe"
+          >
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <g id="Complete">
@@ -32,7 +37,12 @@
               </g>
             </svg>
           </button>
-          <button class="delete" @click="onDeleteClick" title="Delete Recipe">
+          <button
+            v-if="isAuthor"
+            class="delete"
+            @click="onDeleteClick"
+            title="Delete Recipe"
+          >
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg
               viewBox="0 -0.5 21 21"
@@ -119,8 +129,13 @@ import type { Recipe } from "@/types/interfaces";
 import { storeToRefs } from "pinia";
 import { useModalStore } from "@/stores/modalStore";
 import { useHead } from "@vueuse/head";
+import { useUserStore } from "@/stores/userStore";
 const modalStore = useModalStore();
 const recipeStore = useRecipeStore();
+const userStore = useUserStore();
+
+const { currentUser } = storeToRefs(userStore);
+
 const route = useRoute();
 
 const currentRecipe = ref<Recipe | null>(null);
@@ -144,9 +159,12 @@ const imageUrl = computed((): string | undefined => {
 
   return undefined;
 });
-const title = computed(() =>
-  currentRecipe.value ? currentRecipe.value.title : "Recipe Not Found"
-);
+
+const isAuthor = computed(() => {
+  if (!currentUser.value || !currentRecipe.value) return false;
+  return currentUser.value.username === currentRecipe.value.authorUsername;
+});
+
 function onEditClick() {
   modalStore.toggleFormDrawer(true);
   recipeStore.toggleIsInteracting(recipeId.value);
