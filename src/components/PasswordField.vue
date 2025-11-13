@@ -79,13 +79,13 @@ const emit = defineEmits<{
 .password-slot {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
   width: 100%;
 }
 .password-field {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   width: 100%;
 }
 .toggle-password {
