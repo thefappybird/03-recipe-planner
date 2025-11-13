@@ -6,7 +6,7 @@ useHead({
   title: "Home | Plato",
   meta: [
     { name: "description", content: "Welcome to Plato" },
-    { property: "og:title", content: "Home | Plato" },
+    { property: "og:title", content: "Home |  Plato" },
   ],
 });
 </script>

@@ -49,7 +49,6 @@ export const useRecipeStore = defineStore("recipes", () => {
       toastStore.addToast(message, "success");
       await userStore.getCurrentUser();
     } catch (error) {
-      console.log("aaaaaa");
       handleError(error);
     } finally {
       router.push({ name: "auth-explore" });

@@ -4,14 +4,68 @@
       <div class="recipe-details">
         <div class="title-edit-container">
           <h1>{{ currentRecipe.title }}</h1>
-          <button @click="onEditClick">Edit</button>
-          <button @click="onDeleteClick">delete</button>
+          <button class="edit" @click="onEditClick" title="Edit Recipe">
+            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g id="Complete">
+                <g id="edit">
+                  <g>
+                    <path
+                      d="M20,16v4a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4H8"
+                      fill="none"
+                      stroke="#374b27"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+
+                    <polygon
+                      fill="none"
+                      points="12.5 15.8 22 6.2 17.8 2 8.3 11.5 8 16 12.5 15.8"
+                      stroke="#374b27"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <button class="delete" @click="onDeleteClick" title="Delete Recipe">
+            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg
+              viewBox="0 -0.5 21 21"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="Dribbble-Light-Preview"
+                  transform="translate(-179.000000, -360.000000)"
+                  fill="#374b27"
+                >
+                  <g id="icons" transform="translate(56.000000, 160.000000)">
+                    <path
+                      d="M130.35,216 L132.45,216 L132.45,208 L130.35,208 L130.35,216 Z M134.55,216 L136.65,216 L136.65,208 L134.55,208 L134.55,216 Z M128.25,218 L138.75,218 L138.75,206 L128.25,206 L128.25,218 Z M130.35,204 L136.65,204 L136.65,202 L130.35,202 L130.35,204 Z M138.75,204 L138.75,200 L128.25,200 L128.25,204 L123,204 L123,206 L126.15,206 L126.15,220 L140.85,220 L140.85,206 L144,206 L144,204 L138.75,204 Z"
+                      id="delete-[#1487]"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
         </div>
         <p>By: {{ currentRecipe.authorUsername }}</p>
-        <p>
-          {{ currentRecipe.averageRating }}
-          <span class="star"> ★</span>
-        </p>
         <p v-if="currentRecipe.totalFavorites > 0">
           Favorited by {{ currentRecipe.totalFavorites }}
           <span v-if="currentRecipe.totalFavorites > 1"> users.</span>
@@ -33,11 +87,10 @@
           v-for="(ingredient, index) in currentRecipe.ingredients"
           :key="index"
         >
-          <div class="array-section">
-            <p class="ingredient-count">{{ index + 1 }}.</p>
-            <p>{{ ingredient.name }}</p>
+          <div class="ingredients-section title-name">
+            <p class="ingredient-name"><span>•</span> {{ ingredient.name }}</p>
           </div>
-          <div class="array-section">
+          <div class="ingredients-section amount-units">
             <p>{{ ingredient.amount }}</p>
             <p>{{ ingredient.units }}</p>
           </div>
@@ -51,7 +104,7 @@
         v-for="(step, index) in currentRecipe.steps"
         :key="index"
       >
-        <p>Step {{ step.stepNumber }}</p>
+        <p class="title">Step {{ step.stepNumber }}</p>
         <p>{{ step.description }}</p>
       </div>
     </div>
@@ -169,7 +222,24 @@ useHead({
     .title-edit-container {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      h1 {
+        margin-right: 1rem;
+      }
+      button {
+        background-color: transparent;
+        height: 35px;
+        width: 35px;
+        transition: all 0.2s ease; // smooth transition for hover
+
+        &:hover {
+          color: white; // text/icon color change
+          transform: scale(1.1); // slight zoom effect
+        }
+
+        &:active {
+          transform: scale(0.95); // press-down effect
+        }
+      }
     }
   }
   .array-list {
@@ -188,16 +258,40 @@ useHead({
 .array-section {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  .ingredient-count {
+  gap: 1rem;
+  border-bottom: 1px solid black;
+  padding: 0.5rem 0;
+  .title {
     font-weight: bold;
+    text-wrap: nowrap;
   }
 }
+
 .ingredients-container {
   display: grid;
   grid-template-rows: repeat(5, min-content); // 5 rows per column
-  grid-auto-flow: column; // Fill items column-first
+  grid-auto-flow: row; // Fill items column-first
   width: fit-content;
+  min-width: 250px;
+  .ingredients-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .amount-units {
+    justify-content: flex-end;
+  }
+  .title-name {
+    p {
+      font-weight: bold;
+      text-wrap: nowrap;
+      span {
+        margin-right: 0.3rem;
+        font-size: larger;
+      }
+    }
+  }
   @media (max-width: 768px) {
     grid-template-rows: repeat(auto-fill, min-content);
     grid-auto-flow: row; // Flow row-first on smaller screens

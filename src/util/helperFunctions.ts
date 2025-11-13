@@ -28,7 +28,6 @@ export const transformToFormData = (
 
 export const postRequest = async (url: string, data: any) => {
   const formData = transformToFormData(data);
-  console.log([...formData.entries()]);
 
   return await api.post(url, formData, {
     headers: { "Content-Type": "multipart/form-data" },

@@ -34,7 +34,6 @@ export const useFavoriteStore = defineStore("favorite", () => {
     try {
       loadingState.value = true;
       const response = await favoriteService.getFilteredFavoritesByUser(filter);
-      console.log(response);
       userFavorites.value = response;
     } catch (error) {
       handleError(error);

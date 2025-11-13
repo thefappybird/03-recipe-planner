@@ -6,9 +6,9 @@
     exact-active-class="is-exact-active"
   >
     <p class="title">{{ title }}</p>
-    <p class="rating">
+    <!-- <p class="rating">
       {{ Math.floor(averageRating) }}<span class="star"> ★</span>
-    </p>
+    </p> -->
   </router-link>
 </template>
 

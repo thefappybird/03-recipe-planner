@@ -6,7 +6,7 @@
         >Alexander A. Banaag III</a
       >
     </h2>
-    <h6>+63 917 924 1453</h6>
+    <h6>+971 50 240 7012</h6>
     <h6>alex.banaag1@gmail.com</h6>
   </footer>
 </template>
