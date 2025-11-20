@@ -2,6 +2,7 @@
 
 ## Overview
 **Plato** is a recipe maker and explorer application designed to allow users to create, manage, and explore recipes with ease. The app is built with **Vue.js**, **TypeScript**, **SCSS**, and a backend powered by **.NET C#** with **MS SQL** for data storage.
+
 Visit PLATO here: 03-recipe-planner.vercel.app
 ---
 
