@@ -11,8 +11,8 @@
   </footer>
 </template>
 <script>
-  const contactNum = import.meta.env.VITE_CONTACT_NUM;
-  const email = import.meta.env.VITE_EMAIL;
+  const contactNum = import.meta.env.VITE_API_CONTACT_NUM;
+  const email = import.meta.env.VITE_API_EMAIL;
 </script>
 <style scoped lang="scss">
 footer {
