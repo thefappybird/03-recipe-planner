@@ -7,12 +7,15 @@ Visit PLATO here: 03-recipe-planner.vercel.app
 ---
 
 ## Tech Stack
-- **Frontend**: 
-[![Vue][Vue.js]][Vue-url]
-[![TypeScript][TypeScript]][TS-url]
-[![SASS][Sass]][Sass-url]
-- **Backend**: .NET C# API
-- **Database**: MS SQL Server
+- **Frontend**:
+- [![Vue][Vue.js]][Vue-url]
+- [![TypeScript][TypeScript]][TS-url]
+- [![SASS][Sass]][Sass-url]
+- **Backend**:
+- [![.NET 9][Dotnet]][Dotnet-url]
+- [![C#][C#]][C#-url]
+- **Database**:
+- [![MSSQL][MSSQL]][MSSQL-url]
 
 ---
 ### Prerequisites
@@ -89,4 +92,10 @@ Plato is a full-featured recipe management and exploration app, offering users t
 [TypeScript]: https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square
 [TS-url]: https://www.typescriptlang.org
 [Sass]: https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white
+[Dotnet]: https://img.shields.io/badge/.NET-5C2D91?style=badge&logo=.net&logoColor=white
+[Dotnet-url]: https://dotnet.microsoft.com/en-us/
+[C#]: https://img.shields.io/badge/C%23-239120?style=flat&logo=unity&logoColor=white
+[C#-url]: https://dotnet.microsoft.com/en-us/languages/csharp
 [Sass-url]: https://sass-lang.com
+[MSSQL]: https://img.shields.io/badge/Microsoft_SQL_Server-CC2927
+[MSSQL-url]: https://www.microsoft.com/en-us/sql-server
