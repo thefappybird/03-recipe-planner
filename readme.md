@@ -7,12 +7,37 @@ Visit PLATO here: 03-recipe-planner.vercel.app
 ---
 
 ## Tech Stack
-- **Frontend**: Vue.js, TypeScript, SCSS
+- **Frontend**: [![Vue][Vue.js]][Vue-url], TypeScript, SCSS
 - **Backend**: .NET C# API
 - **Database**: MS SQL Server
 
 ---
+### Prerequisites
 
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/thefappybird/Plato.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```  
+3. Change git remote url to avoid accidental pushes to base project
+   ```sh
+   git remote set-url origin github_username/repo_name
+   git remote -v # confirm the changes
+   ```
+   
 ## Features
 1. **User Authentication**
    - Sign in and registration functionality
@@ -53,3 +78,8 @@ Visit PLATO here: 03-recipe-planner.vercel.app
 
 ## Summary
 Plato is a full-featured recipe management and exploration app, offering users the ability to create, edit, delete, and explore recipes. With user authentication, a robust backend, and a modular frontend built with Vue.js and TypeScript, Plato ensures a secure and seamless experience for food enthusiasts.
+
+
+
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
